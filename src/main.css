@@ -9,3 +9,69 @@ body {
 #time-stamp {
   font-size: 80px;
 }
+
+#add-todo {
+  min-width: 500px;
+  height: 50px;
+  border-style: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50px;
+  box-sizing: border-box;
+  padding: 5px 20px;
+  color: white;
+  outline-style: none;
+  font-size: 14px;
+}
+#add-todo::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* 투두 커스텀 */
+input[type="checkbox"] {
+  display: none;
+}
+.todo-item {
+  width: 600px;
+  min-width: 500px;
+  border-bottom: 1px solid rgb(181, 181, 181);
+  box-sizing: border-box;
+  padding: 10px 5px;
+  margin-top: 5px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+#checkbox-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border: 1px solid rgb(181, 181, 181);
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+.todo-item input:checked + #checkbox-icon {
+  border: 1px solid rgb(132, 150, 255);
+}
+.todo-item input:checked + #checkbox-icon::after {
+  opacity: 1;
+}
+.todo-item input:checked + #checkbox-icon + #todo-text {
+  color: rgb(181, 181, 181);
+  text-decoration: line-through;
+}
+#checkbox-icon::after {
+  content: "";
+  width: 11px;
+  height: 11px;
+  background-color: rgb(132, 150, 255);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
