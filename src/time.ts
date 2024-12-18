@@ -1,26 +1,21 @@
 let timeStamp = document.querySelector('#time-stamp');
 let yearStamp = document.querySelector('#year-stamp');
 
-let now: Date = new Date();
-
-const showYear = () => {
-  if (!yearStamp) return;
+// 시간 출력
+const showTime = () => {
+  if (!timeStamp || !yearStamp) return;
+  let now: Date = new Date();
 
   let year = now.getFullYear();
-
-  yearStamp.textContent += `${year}`
-}
-
-const showTime = () => {
-  if (!timeStamp) return;
-
   let hour = now.getHours().toString().padStart(2, '0');
   let minutes = now.getMinutes().toString().padStart(2, '0');
+  let second = now.getSeconds().toString().padStart(2, '0');
 
-  timeStamp.textContent += `${hour} : ${minutes}`;
+  timeStamp.textContent = `${hour} : ${minutes} : ${second}`;
+  yearStamp.textContent = `${year}`;
 }
 
-showYear();
 showTime();
-setInterval(showTime, 60000);
+setInterval(showTime, 1000)
+
 
