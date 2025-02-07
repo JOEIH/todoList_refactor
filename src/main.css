@@ -1,18 +1,33 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  /* box-shadow 말고 background-color로 input 배경색 적용 */
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-background-clip: padding-box;
+}
+
 body {
+  margin: 0;
   height: 100vh;
   width: 100vw;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: url("./assets/img/background_img.jpg");
   font-family: Pretendard;
-  background: linear-gradient(
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* background: linear-gradient(
       217deg,
       rgba(246, 197, 197, 0.8),
       rgb(255 0 0 / 0%) 70.71%
     ),
-    linear-gradient(127deg, rgba(164, 216, 245, 0.8), rgb(0 255 0 / 0%) 70.71%);
+    linear-gradient(127deg, rgba(164, 216, 245, 0.8), rgb(0 255 0 / 0%) 70.71%); */
 }
 
 #time-stamp {
+  text-align: center;
   font-size: 80px;
 }
 
@@ -74,14 +89,14 @@ input[type="checkbox"] {
   width: 16px;
   height: 16px;
   background-color: transparent;
-  border: 1px solid white;
+  border: 1.5px solid white;
   border-radius: 50%;
   cursor: pointer;
   position: relative;
   transition: all 0.2s ease-in-out;
 }
 .todo-item input:checked + #checkbox-icon {
-  border: 1px solid rgb(132, 150, 255);
+  border: 1.5px solid rgb(132, 150, 255);
 }
 .todo-item input:checked + #checkbox-icon::after {
   opacity: 1;
