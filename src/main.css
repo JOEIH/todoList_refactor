@@ -4,17 +4,30 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   font-family: Pretendard;
+  background: linear-gradient(
+      217deg,
+      rgba(246, 197, 197, 0.8),
+      rgb(255 0 0 / 0%) 70.71%
+    ),
+    linear-gradient(127deg, rgba(164, 216, 245, 0.8), rgb(0 255 0 / 0%) 70.71%);
 }
 
 #time-stamp {
   font-size: 80px;
 }
 
-#add-todo {
+#todo-form {
+  display: flex;
+  position: relative;
   min-width: 500px;
+  width: 600px;
+  margin: 0 auto;
+}
+#add-todo {
+  min-width: 550px;
   height: 50px;
   border-style: none;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 50px;
   box-sizing: border-box;
   padding: 5px 20px;
@@ -23,7 +36,22 @@ body {
   font-size: 14px;
 }
 #add-todo::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(128, 128, 128);
+}
+
+/* 추가 버튼 */
+#add-todo-button {
+  height: 50px;
+  border-style: none;
+  background-color: rgb(128, 128, 128);
+  position: absolute;
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+  right: 0;
+  padding: 0;
+}
+.add-todo-button-svg {
+  color: rgb(132, 150, 255);
 }
 
 /* 투두 커스텀 */
@@ -31,22 +59,22 @@ input[type="checkbox"] {
   display: none;
 }
 .todo-item {
-  width: 600px;
+  width: 100%;
   min-width: 500px;
-  border-bottom: 1px solid rgb(181, 181, 181);
+  border-bottom: 1px solid rgb(128, 128, 128);
   box-sizing: border-box;
-  padding: 10px 5px;
-  margin-top: 5px;
+  padding: 14px 5px;
   display: flex;
   gap: 10px;
   align-items: center;
+  color: white;
 }
 #checkbox-icon {
   display: inline-block;
   width: 16px;
   height: 16px;
   background-color: transparent;
-  border: 1px solid rgb(181, 181, 181);
+  border: 1px solid white;
   border-radius: 50%;
   cursor: pointer;
   position: relative;
@@ -59,7 +87,7 @@ input[type="checkbox"] {
   opacity: 1;
 }
 .todo-item input:checked + #checkbox-icon + #todo-text {
-  color: rgb(181, 181, 181);
+  color: rgb(128, 128, 128);
   text-decoration: line-through;
 }
 #checkbox-icon::after {
@@ -74,4 +102,22 @@ input[type="checkbox"] {
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: all 0.2s ease-in-out;
+}
+
+/* todo 리스트 */
+#todos {
+  max-height: 500px;
+  min-width: 500px;
+  overflow: scroll;
+  width: 640px;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 0 20px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 30px;
+  margin: 0 auto;
 }
