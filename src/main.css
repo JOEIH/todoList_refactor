@@ -1,20 +1,56 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  /* box-shadow 말고 background-color로 input 배경색 적용 */
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-background-clip: padding-box;
+}
+
 body {
+  margin: 0;
   height: 100vh;
   width: 100vw;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: url("./assets/img/background_img.jpg");
   font-family: Pretendard;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* background: linear-gradient(
+      217deg,
+      rgba(246, 197, 197, 0.8),
+      rgb(255 0 0 / 0%) 70.71%
+    ),
+    linear-gradient(127deg, rgba(164, 216, 245, 0.8), rgb(0 255 0 / 0%) 70.71%); */
 }
 
 #time-stamp {
+  text-align: center;
   font-size: 80px;
 }
 
-#add-todo {
+/* 투두 컨테이너 */
+#todo-container {
+  width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+#todo-form {
+  display: flex;
+  position: relative;
   min-width: 500px;
+  width: 600px;
+}
+#add-todo {
+  min-width: 550px;
   height: 50px;
   border-style: none;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 50px;
   box-sizing: border-box;
   padding: 5px 20px;
@@ -23,7 +59,22 @@ body {
   font-size: 14px;
 }
 #add-todo::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(128, 128, 128);
+}
+
+/* 추가 버튼 */
+#add-todo-button {
+  height: 50px;
+  border-style: none;
+  background-color: rgb(128, 128, 128);
+  position: absolute;
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+  right: 0;
+  padding: 0;
+}
+.add-todo-button-svg {
+  color: rgb(132, 150, 255);
 }
 
 /* 투두 커스텀 */
@@ -31,35 +82,35 @@ input[type="checkbox"] {
   display: none;
 }
 .todo-item {
-  width: 600px;
+  width: 100%;
   min-width: 500px;
-  border-bottom: 1px solid rgb(181, 181, 181);
+  border-bottom: 1px solid rgb(128, 128, 128);
   box-sizing: border-box;
-  padding: 10px 5px;
-  margin-top: 5px;
+  padding: 14px 5px;
   display: flex;
   gap: 10px;
   align-items: center;
+  color: white;
 }
 #checkbox-icon {
   display: inline-block;
   width: 16px;
   height: 16px;
   background-color: transparent;
-  border: 1px solid rgb(181, 181, 181);
+  border: 1.5px solid white;
   border-radius: 50%;
   cursor: pointer;
   position: relative;
   transition: all 0.2s ease-in-out;
 }
 .todo-item input:checked + #checkbox-icon {
-  border: 1px solid rgb(132, 150, 255);
+  border: 1.5px solid rgb(132, 150, 255);
 }
 .todo-item input:checked + #checkbox-icon::after {
   opacity: 1;
 }
 .todo-item input:checked + #checkbox-icon + #todo-text {
-  color: rgb(181, 181, 181);
+  color: rgb(128, 128, 128);
   text-decoration: line-through;
 }
 #checkbox-icon::after {
@@ -74,4 +125,28 @@ input[type="checkbox"] {
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: all 0.2s ease-in-out;
+}
+
+/* todo 리스트 */
+#todos {
+  max-height: 500px;
+  min-width: 500px;
+  overflow: scroll;
+  height: 500px;
+  width: 640px;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 0 20px;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+/* 기본 문구 */
+#blank-message {
+  margin: auto 0;
+  color: white;
+  font-size: 14px;
 }

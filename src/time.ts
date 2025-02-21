@@ -7,12 +7,14 @@ const showTime = () => {
   let now: Date = new Date();
 
   let year = now.getFullYear();
+  let month = now.getMonth() + 1;
+  let day = now.getDate();
   let hour = now.getHours().toString().padStart(2, '0');
   let minutes = now.getMinutes().toString().padStart(2, '0');
   let second = now.getSeconds().toString().padStart(2, '0');
 
   timeStamp.textContent = `${hour} : ${minutes} : ${second}`;
-  yearStamp.textContent = `${year}`;
+  yearStamp.textContent = `${year}년 ${month}월 ${day}일`;
 }
 
 showTime();
