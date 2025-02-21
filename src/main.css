@@ -150,3 +150,12 @@ input[type="checkbox"] {
   color: white;
   font-size: 14px;
 }
+
+/* 투두 텍스트 input */
+#todo-text {
+  background-color: transparent;
+  border-style: none;
+  outline-style: none;
+  font-size: 14px;
+  color: white;
+}

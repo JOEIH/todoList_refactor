@@ -1,3 +1,5 @@
+import { editTodo } from "./editTodo";
+
 const todoForm = document.getElementById('todo-form');
 const todoInput = document.querySelector<HTMLInputElement>('#add-todo');
 const blankMessage = document.getElementById('blank-message');
@@ -11,10 +13,12 @@ const makeTodo = (text: string) => {
   newTodoContainer.insertAdjacentHTML('afterbegin', 
     `<input type="checkbox" id="todo-check">
      <span id="checkbox-icon"></span> 
-     <span id='todo-text'>${text}</span>
-     <button id="edit-button">수정</button>
+     <input id="todo-text" value="${text}" readonly="true">
+     <button id="edit-button" onclick="${editTodo}">수정</button>
      <button id="delete-button">삭제</button> 
     `)
+
+  editTodo 
 
   // 투두리스트들을 div에 추가
   todoBox?.appendChild(newTodoContainer);
