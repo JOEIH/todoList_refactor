@@ -10,7 +10,7 @@ connectDB()
     app.use(express.json());
     app.use(cors());
 
-    app.listen(5000, () => console.log("Server is running at 5000"));
+    app.listen(6000, () => console.log("Server is running at 6000"));
 })
 .catch((err) => {
     console.error('db 연결 오류: ', err);
