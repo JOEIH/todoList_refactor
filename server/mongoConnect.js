@@ -1,15 +1,12 @@
 const mongoose = require('mongoose');
 
 // 환경변수 가져오기 위해 작성
-require("dotenv").config();
+require("dotenv").config({path: "../.env"});
 
 const mongoURI = process.env.MONGODB_URL
 
 const connectDB = () => {
-    return mongoose.connect(mongoURI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
+    return mongoose.connect(mongoURI)
 }
 
 module.exports = connectDB;
