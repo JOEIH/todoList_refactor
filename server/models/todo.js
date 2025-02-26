@@ -9,7 +9,7 @@ const todoInfoSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   }
-})
+}, {collection: 'todoInfo'})
 
 const TodoInfo = mongoose.model('TodoInfo', todoInfoSchema)
 
