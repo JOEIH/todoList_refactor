@@ -1,9 +1,9 @@
 const todoText = document.querySelector<HTMLInputElement>('#todo-text');
-const deleteButton = document.querySelector<HTMLButtonElement>('#delete-button');
+const editButton = document.querySelector<HTMLButtonElement>('#edit-button');
 
 export const editTodo = (baseText: string) => {
-  if (todoText?.value && deleteButton) {
-    deleteButton.style.display = 'none';
+  if (todoText?.value && editButton) {
+    editButton.style.display = 'none';
 
     todoText.readOnly = false;
     todoText.value = baseText;

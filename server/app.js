@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./mongoConnect");
+const router = require('./router/todoRouter');
 const app = express();
 
 connectDB()
@@ -9,8 +10,9 @@ connectDB()
 
     app.use(express.json());
     app.use(cors());
+    app.use(router);
 
-    app.listen(5000, () => console.log("Server is running at 5000"));
+    app.listen(4000, () => console.log("Server is running at 4000"));
 })
 .catch((err) => {
     console.error('db 연결 오류: ', err);
