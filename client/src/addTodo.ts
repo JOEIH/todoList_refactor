@@ -1,18 +1,9 @@
-import axios from "axios";
+import { addTodo } from "./apis/apis";
 
 const todoForm = document.getElementById('todo-form');
 const todoInput = document.querySelector<HTMLInputElement>('#add-todo');
 const blankMessage = document.getElementById('blank-message');
 let todoBox = document.querySelector<HTMLDivElement>('#todos');
-
-// 기본 투두 항목
-const getExamples = async () => {
-  const res = await axios.get("http://localhost:4000/");
-  console.log(res.data);
-}
-
-getExamples();
-
 
 const makeTodo = (text: string) => {
   // 투두 하나의 컨테이너 생성
@@ -20,11 +11,11 @@ const makeTodo = (text: string) => {
   newTodoContainer.className = 'todo-item'
 
   newTodoContainer.insertAdjacentHTML('afterbegin', 
-    `<input type="checkbox" id="todo-check">
-     <span id="checkbox-icon"></span> 
-     <input id="todo-text" value="${text}" readonly="true">
-     <button id="edit-button">수정</button>
-     <button id="delete-button">삭제</button> 
+    `<input type="checkbox" class="todo-check">
+     <span class="checkbox-icon"></span> 
+     <input class="todo-text" value="${text}" readonly="true">
+     <button class="edit-button">수정</button>
+     <button class="delete-button">삭제</button> 
     `)
 
   // 투두리스트들을 div에 추가
@@ -45,6 +36,7 @@ const addNewTodo = () => {
       }
 
       makeTodo(todoInput.value);
+      addTodo(todoInput.value);
       todoInput.value = '';
     }
   }
