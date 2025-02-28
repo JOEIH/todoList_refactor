@@ -11,11 +11,11 @@ const makeTodo = (text: string) => {
   newTodoContainer.className = 'todo-item'
 
   newTodoContainer.insertAdjacentHTML('afterbegin', 
-    `<input type="checkbox" id="todo-check">
-     <span id="checkbox-icon"></span> 
-     <input id="todo-text" value="${text}" readonly="true">
-     <button id="edit-button">수정</button>
-     <button id="delete-button">삭제</button> 
+    `<input type="checkbox" class="todo-check">
+     <span class="checkbox-icon"></span> 
+     <input class="todo-text" value="${text}" readonly="true">
+     <button class="edit-button">수정</button>
+     <button class="delete-button">삭제</button> 
     `)
 
   // 투두리스트들을 div에 추가
