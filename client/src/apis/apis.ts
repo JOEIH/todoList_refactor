@@ -1,5 +1,5 @@
 import axios from "axios";
-import { todoInfo } from "../type/types";
+import { todoInfo } from "../types/types";
 
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
