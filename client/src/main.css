@@ -91,7 +91,7 @@ input[type="checkbox"] {
   align-items: center;
   color: white;
 }
-#checkbox-icon {
+.checkbox-icon {
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -102,17 +102,17 @@ input[type="checkbox"] {
   position: relative;
   transition: all 0.2s ease-in-out;
 }
-.todo-item input:checked + #checkbox-icon {
+.todo-item input:checked + .checkbox-icon {
   border: 1.5px solid rgb(132, 150, 255);
 }
-.todo-item input:checked + #checkbox-icon::after {
+.todo-item input:checked + .checkbox-icon::after {
   opacity: 1;
 }
-.todo-item input:checked + #checkbox-icon + #todo-text {
+.todo-item input:checked + .checkbox-icon + .todo-text {
   color: rgb(128, 128, 128);
   text-decoration: line-through;
 }
-#checkbox-icon::after {
+.checkbox-icon::after {
   content: "";
   width: 11px;
   height: 11px;
@@ -151,7 +151,7 @@ input[type="checkbox"] {
 }
 
 /* 투두 텍스트 input */
-#todo-text {
+.todo-text {
   background-color: transparent;
   border-style: none;
   outline-style: none;
