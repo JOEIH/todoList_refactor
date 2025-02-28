@@ -28,8 +28,12 @@ const createTodo = async (todoData) => {
 // 단일 삭제
 const deleteTodo = async (todoId) => {
   try {
+    if (!ObjectId.isValid(todoId)) {
+      throw new Error("유효하지 않은 ID 형식입니다.");
+    }
+
     // 해당하는 id의 투두만 삭제(단일삭제)
-    const deletedTodo = await Todo.findOneAndDelete({_id: ObjectId(todoId)});
+    const deletedTodo = await Todo.findOneAndDelete({_id: new ObjectId(`${todoId}`)});
     return deletedTodo;
   } catch (err) {
     console.error('할 일 삭제 실패: ', err);

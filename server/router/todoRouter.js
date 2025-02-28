@@ -7,7 +7,6 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const allTodos = await readTodos();
-    console.log(allTodos);
 
     res.json(allTodos);
   } catch (err) {
@@ -22,6 +21,21 @@ router.post("/", async (req, res) => {
     console.log(todo);
 
     res.status(201).json(todo);
+  } catch (err) {
+    res.status(500).json({error: err.message});
+  }
+})
+
+// 투두 삭제
+router.delete("/todo/:id", async (req, res) => {
+  try {
+    const target = await deleteTodo(req.params.id);
+
+    if (target) {
+      res.status(201).json(target);
+    } else {
+      res.status(404).json({message: '찾을 수 없는 항목입니다.'})
+    }
   } catch (err) {
     res.status(500).json({error: err.message});
   }
