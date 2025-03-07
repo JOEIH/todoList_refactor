@@ -11,11 +11,15 @@ const makeTodo = (text: string) => {
   newTodoContainer.className = 'todo-item'
 
   newTodoContainer.insertAdjacentHTML('afterbegin', 
-    `<input type="checkbox" class="todo-check">
-     <span class="checkbox-icon"></span> 
-     <input class="todo-text" value="${text}" readonly="true">
-     <button class="edit-button">수정</button>
-     <button class="delete-button">삭제</button> 
+    `<div class="checkbox-and-input">
+      <input type="checkbox" class="todo-check">
+      <span class="checkbox-icon"></span> 
+      <input class="todo-text" value="${text}" readonly="true">
+     </div>
+     <div class="button-box">
+      <button class="edit-button">수정</button>
+      <button class="delete-button">삭제</button> 
+     </div>
     `)
 
   // 투두리스트들을 div에 추가
@@ -45,4 +49,6 @@ const addNewTodo = () => {
 todoForm?.addEventListener('submit', (e) => {
   e.preventDefault();
   addNewTodo();
+  //임시방편으로 일단 reload
+  location.reload();
 })
