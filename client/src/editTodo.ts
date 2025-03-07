@@ -1,5 +1,6 @@
-import { editTodo } from "./apis/apis";
+import { editCheckedTodo, editTodo } from "./apis/apis";
 
+// 체크박스, 내용 정보 수정되면 둘 다 전송
 document.addEventListener('click', (e) => {
   const target = e.target as HTMLElement;
 
@@ -35,3 +36,20 @@ document.addEventListener('click', (e) => {
     }
   }
 })
+
+// 체크박스 수정 여부만 db에 반영되도록 
+document.addEventListener('click', (e) => {
+  const target = e.target as HTMLElement;
+
+  if (target.classList.contains('todo-check')) {
+    const targetTodo = target.closest('.todo-item');
+
+    if (targetTodo) {
+      const id = targetTodo.id;
+      const checkBox = targetTodo.querySelector('.todo-check') as HTMLInputElement;
+      const checkedValue = checkBox.checked;
+      
+      editCheckedTodo(id, checkedValue);
+    }
+  }
+}) 

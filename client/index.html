@@ -13,25 +13,28 @@
     <title>Todo-List</title>
   </head>
   <body>
-    <!-- 시간 스탬프 -->
-    <div id="year-stamp"></div>
-    <div id="time-stamp"></div>
-
     <!-- 투두리스트 -->
     <div id="todo-container">
-      <form id="todo-form">
-        <input
-          type="text"
-          id="add-todo"
-          name="add-todo"
-          placeholder="새로운 할 일을 입력하세요."
-        />
-        <button type="submit" id="add-todo-button">
-          <img src="/src/assets/svg/Subtract.svg" class="add-todo-button-svg" />
-        </button>
-      </form>
+      <!-- 시간 스탬프 -->
+      <div class="stamp-container">
+        <div class="line-year-box">
+          <div class="line-box"></div>
+          <div id="year-stamp"></div>
+        </div>
+        <div id="time-stamp"></div>
+      </div>
 
+      <!-- 투두리스트 -->
       <div id="todos">
+        <form id="todo-form">
+          <input
+            type="text"
+            id="add-todo"
+            name="add-todo"
+            placeholder="새로운 할 일을 입력하세요."
+          />
+          <button type="submit" id="add-todo-button">+</button>
+        </form>
         <p id="blank-message">할 일을 추가해보세요!</p>
       </div>
     </div>

@@ -17,12 +17,6 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  /* background: linear-gradient(
-      217deg,
-      rgba(246, 197, 197, 0.8),
-      rgb(255 0 0 / 0%) 70.71%
-    ),
-    linear-gradient(127deg, rgba(164, 216, 245, 0.8), rgb(0 255 0 / 0%) 70.71%); */
 }
 
 button {
@@ -31,32 +25,59 @@ button {
   cursor: pointer;
 }
 
-#time-stamp {
-  text-align: center;
-  font-size: 80px;
-}
-
 /* 투두 컨테이너 */
 #todo-container {
   width: 440px;
-  margin: 0 auto;
+  margin: 40px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
-#todo-form {
+
+.stamp-container {
+  margin: 0 auto;
   display: flex;
-  position: relative;
-  min-width: 440px;
-  width: 440px;
+  align-items: start;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.line-year-box {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.line-box {
+  height: 18px;
+  width: 3px;
+  background-color: black;
+  border-radius: 3px;
+}
+
+#year-stamp {
+  font-size: 18px;
+}
+
+#time-stamp {
+  font-size: 80px;
+}
+
+#todo-form {
+  min-width: 380px;
+  width: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
 }
 #add-todo {
-  min-width: 440px;
+  min-width: 310px;
   height: 50px;
   border-style: none;
   background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 50px;
+  border-radius: 10px;
   box-sizing: border-box;
   padding: 5px 20px;
   color: white;
@@ -70,16 +91,19 @@ button {
 /* 추가 버튼 */
 #add-todo-button {
   height: 50px;
+  width: 65px;
   border-style: none;
-  background-color: rgb(128, 128, 128);
-  position: absolute;
-  border-radius: 0 50px 50px 0;
+  background-color: rgb(213, 214, 218);
+  border-radius: 10px;
   cursor: pointer;
-  right: 0;
   padding: 0;
+  font-size: 20px;
 }
-.add-todo-button-svg {
-  color: rgb(132, 150, 255);
+#add-todo-button:hover {
+  box-shadow: 0 0 3px gray;
+  background-color: rgb(122, 135, 211);
+  color: white;
+  transition: 0.15s ease-out;
 }
 
 /* 투두 커스텀 */
@@ -97,6 +121,9 @@ input[type="checkbox"] {
   gap: 10px;
   align-items: center;
   color: white;
+}
+.todo-item:hover {
+  transform: scale(1.03);
 }
 .checkbox-icon {
   display: inline-block;
