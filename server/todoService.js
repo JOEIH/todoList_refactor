@@ -44,11 +44,16 @@ const deleteTodo = async (todoId) => {
 // 투두 수정
 const editTodo = async (todoId, editedData) => {
   try {
-    const originData = await Todo.findOne({_id: ObjectId(todoId)});
+    console.log(editedData)
+    const { isDone, content } = editedData;
+    const originData = await Todo.findOne({_id: new ObjectId(`${todoId}`)});
 
     if (!originData) return null;
 
-    const updatedData = await Todo.findByIdAndUpdate(todoId, editedData);
+    const updatedData = await Todo.findByIdAndUpdate(todoId, {
+      isDone: isDone,
+      content: content
+    });
 
     return updatedData;
   } catch (err) {
