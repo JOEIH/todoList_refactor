@@ -25,6 +25,12 @@ body {
     linear-gradient(127deg, rgba(164, 216, 245, 0.8), rgb(0 255 0 / 0%) 70.71%); */
 }
 
+button {
+  border-style: none;
+  background-color: white;
+  cursor: pointer;
+}
+
 #time-stamp {
   text-align: center;
   font-size: 80px;
@@ -32,7 +38,7 @@ body {
 
 /* 투두 컨테이너 */
 #todo-container {
-  width: 640px;
+  width: 440px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -42,11 +48,11 @@ body {
 #todo-form {
   display: flex;
   position: relative;
-  min-width: 500px;
-  width: 600px;
+  min-width: 440px;
+  width: 440px;
 }
 #add-todo {
-  min-width: 550px;
+  min-width: 440px;
   height: 50px;
   border-style: none;
   background-color: rgba(0, 0, 0, 0.7);
@@ -82,11 +88,12 @@ input[type="checkbox"] {
 }
 .todo-item {
   width: 100%;
-  min-width: 500px;
-  border-bottom: 1px solid rgb(128, 128, 128);
+  min-width: 380px;
+  border-bottom: 1px solid rgb(236, 236, 236);
   box-sizing: border-box;
   padding: 14px 5px;
   display: flex;
+  justify-content: space-between;
   gap: 10px;
   align-items: center;
   color: white;
@@ -96,7 +103,7 @@ input[type="checkbox"] {
   width: 16px;
   height: 16px;
   background-color: transparent;
-  border: 1.5px solid white;
+  border: 1.5px solid rgb(128, 128, 128);
   border-radius: 50%;
   cursor: pointer;
   position: relative;
@@ -129,18 +136,19 @@ input[type="checkbox"] {
 /* todo 리스트 */
 #todos {
   max-height: 500px;
-  min-width: 500px;
+  min-width: 440px;
   overflow: scroll;
   height: 500px;
-  width: 640px;
-  background-color: rgba(0, 0, 0, 0.7);
+  width: 440px;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px gray;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  padding: 0 20px;
   box-sizing: border-box;
-  padding: 30px;
+  padding: 20px 30px;
 }
 
 /* 기본 문구 */
@@ -156,5 +164,10 @@ input[type="checkbox"] {
   border-style: none;
   outline-style: none;
   font-size: 14px;
-  color: white;
+}
+
+.checkbox-and-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }

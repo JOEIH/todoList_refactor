@@ -28,7 +28,15 @@ export const addTodo = async (text: string): Promise<void> => {
 
 // 투두 삭제
 export const deleteTodo = async (todoId: string): Promise<todoInfo> => {
-  console.log(todoId);
   const res = await axiosInstance.delete(`/todo/${todoId}`);
+  return res.data;
+}
+
+// 투두 수정
+export const editTodo = async (todoId: string, isDone: boolean, content: string) => {
+  const res = await axiosInstance.put(`/todo/${todoId}`, {
+    isDone: isDone,
+    content: content
+  });
   return res.data;
 }
