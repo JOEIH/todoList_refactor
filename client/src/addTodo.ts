@@ -17,8 +17,8 @@ const makeTodo = (text: string) => {
       <input class="todo-text" value="${text}" readonly="true">
      </div>
      <div class="button-box">
-      <button class="edit-button">수정</button>
-      <button class="delete-button">삭제</button> 
+      <button class="edit-button"><i class="ri-edit-2-line"></i></button>
+      <button class="delete-button"><i class="ri-delete-bin-5-line"></i></button> 
      </div>
     `)
 

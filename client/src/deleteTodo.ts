@@ -3,7 +3,7 @@ import { deleteTodo } from "./apis/apis";
 document.addEventListener('click', (e) => {
   const target = e.target as HTMLElement;
 
-  if (target.classList.contains('delete-button')) {
+  if (target.classList.contains('ri-delete-bin-5-line')) {
     const targetTodo = target.closest('.todo-item');
 
     if (targetTodo) {

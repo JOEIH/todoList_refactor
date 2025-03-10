@@ -1,5 +1,5 @@
 const express = require('express');
-const {readTodos, createTodo, deleteTodo, editTodo} = require('../todoService');
+const {readTodos, createTodo, deleteTodo, editTodo, checkedTodo} = require('../todoService');
 
 const router = express.Router();
 
@@ -40,11 +40,25 @@ router.delete("/todo/:id", async (req, res) => {
   }
 })
 
-//투두 수정
+//투두 수정(내용, 체크박스)
 router.put("/todo/:id", async (req, res) => {
   try { 
-    console.log(req.params.id, req.body);
     const target = await editTodo(req.params.id, req.body);
+
+    if (target) {
+      res.status(201).json(target);
+    } else {
+      res.status(404).json({message: '찾을 수 없는 항목입니다.'})
+    }
+  } catch (err) {
+    res.status(500).json({error: err.message});
+  }
+})
+
+// 투두 수정(체크박스만)
+router.put("/todo/:id", async (req, res) => {
+  try {
+    const target = await checkedTodo(req.params.id, req.body);
 
     if (target) {
       res.status(201).json(target);

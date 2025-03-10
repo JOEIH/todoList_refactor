@@ -41,10 +41,9 @@ const deleteTodo = async (todoId) => {
   }
 }
 
-// 투두 수정
+// 투두 수정(내용, 체크박스)
 const editTodo = async (todoId, editedData) => {
   try {
-    console.log(editedData)
     const { isDone, content } = editedData;
     const originData = await Todo.findOne({_id: new ObjectId(`${todoId}`)});
 
@@ -62,4 +61,22 @@ const editTodo = async (todoId, editedData) => {
   }
 }
 
-module.exports = {readTodos, createTodo, deleteTodo, editTodo}
+//투두 수정(체크박스만)
+const checkedTodo = async (todoId, checkedData) => {
+  try {
+    const originData = await Todo.findOne({_id: new ObjectId(`${todoId}`)})
+
+    if (!originData) return null;
+
+    const updatedChecked = await Todo.findByIdAndUpdate(todoId, {
+      isDone: checkedData
+    })
+
+    return updatedChecked;
+  } catch (err) {
+    console.error('할 일 수정 실패: ', err);
+    throw err;
+  }
+}
+
+module.exports = {readTodos, createTodo, deleteTodo, editTodo, checkedTodo}

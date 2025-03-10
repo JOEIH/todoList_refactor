@@ -9,16 +9,25 @@
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="src/main.css" />
     <title>Todo-List</title>
   </head>
   <body>
-    <!-- 시간 스탬프 -->
-    <div id="year-stamp"></div>
-    <div id="time-stamp"></div>
-
     <!-- 투두리스트 -->
     <div id="todo-container">
+      <!-- 시간 스탬프 -->
+      <div class="stamp-container">
+        <div class="line-year-box">
+          <div class="line-box"></div>
+          <div id="year-stamp"></div>
+        </div>
+        <div id="time-stamp"></div>
+      </div>
+
       <form id="todo-form">
         <input
           type="text"
@@ -27,13 +36,20 @@
           placeholder="새로운 할 일을 입력하세요."
         />
         <button type="submit" id="add-todo-button">
-          <img src="/src/assets/svg/Subtract.svg" class="add-todo-button-svg" />
+          <i class="ri-add-line"></i>
         </button>
       </form>
 
+      <!-- 투두리스트 -->
       <div id="todos">
         <p id="blank-message">할 일을 추가해보세요!</p>
       </div>
+
+      <div class="bottom-icons">
+        <a href="https://github.com/JOEIH"><i class="ri-github-fill"></i></a>
+      </div>
+
+      <p class="copyright">@2025.JOEIH.All rights reserved</p>
     </div>
 
     <!-- 스크립트 -->

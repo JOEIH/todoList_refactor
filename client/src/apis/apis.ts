@@ -32,11 +32,19 @@ export const deleteTodo = async (todoId: string): Promise<todoInfo> => {
   return res.data;
 }
 
-// 투두 수정
+// 투두 수정(내용, 체크박스);
 export const editTodo = async (todoId: string, isDone: boolean, content: string) => {
   const res = await axiosInstance.put(`/todo/${todoId}`, {
     isDone: isDone,
     content: content
+  });
+  return res.data;
+}
+
+// 투두 수정(체크박스만);
+export const editCheckedTodo = async (todoId: string, isDone: boolean) => {
+  const res = await axiosInstance.put(`/todo/${todoId}`, {
+    isDone: isDone,
   });
   return res.data;
 }
