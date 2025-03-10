@@ -43,7 +43,6 @@ export const editTodo = async (todoId: string, isDone: boolean, content: string)
 
 // 투두 수정(체크박스만);
 export const editCheckedTodo = async (todoId: string, isDone: boolean) => {
-  console.log(todoId, isDone)
   const res = await axiosInstance.put(`/todo/${todoId}`, {
     isDone: isDone,
   });

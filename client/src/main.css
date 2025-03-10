@@ -1,3 +1,7 @@
+:root {
+  --maincolor: #4681ff;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -17,30 +21,33 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  background-image: url("./assets/img/running-4782722.jpg");
 }
-
-button {
-  border-style: none;
-  background-color: white;
-  cursor: pointer;
+a {
+  text-decoration-line: none;
 }
 
 /* 투두 컨테이너 */
 #todo-container {
   width: 440px;
-  margin: 40px auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
 }
 
 .stamp-container {
-  margin: 0 auto;
   display: flex;
   align-items: start;
+  align-self: baseline;
   flex-direction: column;
   box-sizing: border-box;
+  color: white;
+  gap: 4px;
+  margin-bottom: 20px;
 }
 
 .line-year-box {
@@ -50,34 +57,36 @@ button {
 }
 
 .line-box {
-  height: 18px;
+  height: 16px;
   width: 3px;
-  background-color: black;
+  background-color: white;
   border-radius: 3px;
 }
 
 #year-stamp {
-  font-size: 18px;
+  font-size: 14px;
 }
 
 #time-stamp {
-  font-size: 80px;
+  font-size: 50px;
+  font-weight: 800;
+  font-style: italic;
 }
 
 #todo-form {
-  min-width: 380px;
+  min-width: 440px;
   width: 380px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 #add-todo {
-  min-width: 310px;
+  min-width: 370px;
   height: 50px;
   border-style: none;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.625);
+  border-radius: 15px;
   box-sizing: border-box;
   padding: 5px 20px;
   color: white;
@@ -94,14 +103,14 @@ button {
   width: 65px;
   border-style: none;
   background-color: rgb(213, 214, 218);
-  border-radius: 10px;
+  color: white;
+  border-radius: 15px;
   cursor: pointer;
   padding: 0;
   font-size: 20px;
 }
 #add-todo-button:hover {
-  box-shadow: 0 0 3px gray;
-  background-color: rgb(122, 135, 211);
+  background-color: var(--maincolor);
   color: white;
   transition: 0.15s ease-out;
 }
@@ -113,18 +122,19 @@ input[type="checkbox"] {
 .todo-item {
   width: 100%;
   min-width: 380px;
-  border-bottom: 1px solid rgb(236, 236, 236);
+  border-bottom: 1.5px solid rgb(213, 213, 213);
   box-sizing: border-box;
-  padding: 14px 5px;
+  padding: 18px 5px;
   display: flex;
   justify-content: space-between;
   gap: 10px;
   align-items: center;
   color: white;
+  font-size: 16px;
+  scroll-snap-align: start;
+  scroll-margin-top: 10px;
 }
-.todo-item:hover {
-  transform: scale(1.03);
-}
+
 .checkbox-icon {
   display: inline-block;
   width: 16px;
@@ -137,7 +147,7 @@ input[type="checkbox"] {
   transition: all 0.2s ease-in-out;
 }
 .todo-item input:checked + .checkbox-icon {
-  border: 1.5px solid rgb(132, 150, 255);
+  border: 1.5px solid var(--maincolor);
 }
 .todo-item input:checked + .checkbox-icon::after {
   opacity: 1;
@@ -150,7 +160,7 @@ input[type="checkbox"] {
   content: "";
   width: 11px;
   height: 11px;
-  background-color: rgb(132, 150, 255);
+  background-color: var(--maincolor);
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -162,20 +172,23 @@ input[type="checkbox"] {
 
 /* todo 리스트 */
 #todos {
-  max-height: 500px;
+  min-height: 300px;
   min-width: 440px;
-  overflow: scroll;
-  height: 500px;
+  scroll-snap-type: y mandatory;
+  height: 440px;
   width: 440px;
-  border-radius: 20px;
-  background-color: white;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.873);
   box-shadow: 0 0 10px gray;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: start;
   box-sizing: border-box;
-  padding: 20px 30px;
+  padding: 30px;
+  margin-bottom: 20px;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
 }
 
 /* 기본 문구 */
@@ -197,4 +210,41 @@ input[type="checkbox"] {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.edit-button,
+.delete-button,
+.finish-button {
+  color: rgb(213, 213, 213);
+  border-style: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0 3px;
+}
+
+.edit-button:hover,
+.delete-button:hover,
+.finish-button:hover {
+  color: var(--maincolor);
+  transition: 0.15s ease;
+}
+
+.bottom-icons {
+  margin-top: 20px;
+}
+.ri-github-fill {
+  display: inline-block;
+  font-size: 30px;
+  color: rgba(213, 213, 213);
+}
+.ri-github-fill:hover {
+  color: white;
+  transform: scale(1.1);
+  transition: 0.15s ease;
+}
+
+.copyright {
+  color: white;
+  font-size: 14px;
 }
